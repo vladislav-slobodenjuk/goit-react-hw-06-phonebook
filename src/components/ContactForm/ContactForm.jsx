@@ -2,10 +2,14 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 
+import { useDispatch } from 'react-redux';
+import { addContact } from 'redux/actions';
+
 import s from './ContactForm.module.scss';
 
 export default function ContactForm(props) {
-  const { onSubmit } = props;
+  // const { onSubmit } = props;
+  const dispatch = useDispatch();
 
   const [userName, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -42,7 +46,8 @@ export default function ContactForm(props) {
       number: number,
     };
 
-    onSubmit(userObj);
+    dispatch(addContact(userObj));
+    // onSubmit(userObj);
     // this.props.onSubmit(this.state);
   };
 
