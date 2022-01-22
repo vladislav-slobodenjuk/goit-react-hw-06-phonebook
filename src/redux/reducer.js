@@ -3,7 +3,7 @@ import {
   addContact,
   deleteContact,
   setContactsFilter,
-  filterContacts,
+  // filterContacts,
   setContacts,
 } from './actions';
 
@@ -52,15 +52,18 @@ export const contactReducer = createReducer(initialState, {
     // state.contacts.filter = action.payload.target.value;
     // console.log(action);
   },
-  [filterContacts]: (state, action) => {
-    const { filter, items } = state.contacts;
+  // это filterContacts здесь не нужен
+  // он уходин из экшенов в вычисляемый селектор FiltredContacts
 
-    const lowFilter = filter.toLowerCase();
-    console.log(items);
+  // [filterContacts]: (state, action) => {
+  //   const { filter, items } = state.contacts;
 
-    return items.filter(contact =>
-      contact.name.toLocaleLowerCase().includes(lowFilter),
-    );
-  },
+  //   const lowFilter = filter.toLowerCase();
+  //   console.log(items);
+
+  //   return items.filter(contact =>
+  //     contact.name.toLocaleLowerCase().includes(lowFilter),
+  //   );
+  // },
   // [filterContact]: (state, action) => state + action.payload,
 });

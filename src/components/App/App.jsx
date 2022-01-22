@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
 import { setContacts } from 'redux/actions';
-// import { setContactsFilter } from 'redux/actions';
 
 import ContactForm from 'components/ContactForm/ContactForm';
 import ContactList from 'components/ContactList/ContactList';

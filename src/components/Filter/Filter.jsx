@@ -11,7 +11,7 @@ export default function Filter({ value, onChange }) {
   // импортируется из файла с селекторами
   const getFilter = state => state.contacts.filter;
   const filter = useSelector(getFilter);
-  console.log(filter);
+  // console.log(filter);
 
   return (
     <>
