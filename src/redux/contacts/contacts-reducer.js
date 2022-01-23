@@ -1,5 +1,4 @@
 import { createReducer } from '@reduxjs/toolkit';
-// import { combineReducers } from 'redux';
 
 import { nanoid } from 'nanoid';
 import {
@@ -48,8 +47,3 @@ export const contactsReducer = createReducer(initialState, {
     state.contacts.filter = action.payload;
   },
 });
-
-// const contactsReducer = combineReducers({
-//   items: itemsReducer,
-//   filter: filterReducer,
-// });
