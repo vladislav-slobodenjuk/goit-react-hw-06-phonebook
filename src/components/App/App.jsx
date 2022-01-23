@@ -23,7 +23,7 @@ export default function App() {
     if (isStorageContacts) {
       dispatch(setContacts(storageContacts));
     }
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     localStorage.setItem(localStorageKey, JSON.stringify(contacts));
