@@ -23,7 +23,9 @@ export default function ContactList(props) {
 
   const FiltredContacts = state => {
     const contacts = getContacts(state);
+    // console.log(contacts);
     const filter = getFilter(state);
+    // console.log('filter', filter);
 
     const lowFilter = filter.toLowerCase();
     // console.log(contacts.items);

@@ -70,16 +70,16 @@ export default function App() {
     // уже не нужна, реализовал прямо в фильтр
   };
 
-  const filterContacts = () => {
-    const lowFilter = filter.toLowerCase();
+  // const filterContacts = () => {
+  //   const lowFilter = filter.toLowerCase();
 
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(lowFilter),
-    );
-    // эта функция вместе с const на строке 83 заменяется
-    // на селектор, к-й импортируется прямо в компонент Filter
-  };
-  const filteredContacts = filterContacts();
+  //   return contacts.filter(contact =>
+  //     contact.name.toLowerCase().includes(lowFilter),
+  //   );
+  //   // эта функция вместе с const на строке 83 заменяется
+  //   // на селектор, к-й импортируется прямо в компонент Filter
+  // };
+  // const filteredContacts = filterContacts();
 
   const deleteContact = name => {
     const restContacts = contacts.filter(contact => contact.name !== name);
@@ -94,7 +94,8 @@ export default function App() {
       <ContactForm onSubmit={addContact} />
       <h2>Contacts</h2>
       <Filter value={filter} onChange={setContactsFilterOld} />
-      <ContactList contacts={filteredContacts} onDelete={deleteContact} />
+      {/* <ContactList contacts={filteredContacts} onDelete={deleteContact} /> */}
+      <ContactList onDelete={deleteContact} />
     </div>
   );
 }
