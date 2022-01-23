@@ -1,40 +1,14 @@
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { deleteContact } from 'redux/contacts/contacts-actions';
-// import { filterContacts } from 'redux/actions';
+
+import { FiltredContacts } from 'redux/contacts/contacts-selectors';
 
 import PropTypes from 'prop-types';
 import s from './ContactList.module.scss';
 
-export default function ContactList(props) {
-  // const { contacts, onDelete } = props;
+export default function ContactList() {
   const dispatch = useDispatch();
-
-  // уходит в файл с селекторами и оттуда импорт
-  const getContacts = state => state.contacts.items;
-  // const contacts = useSelector(getContacts);
-  // console.log(contacts);
-  //
-
-  // уходит в файл с селекторами и оттуда импорт
-  const getFilter = state => state.contacts.filter;
-  // const filter = useSelector(getFilter);
-  // console.log(filter);
-
-  const FiltredContacts = state => {
-    const contacts = getContacts(state);
-    const filter = getFilter(state);
-
-    const lowFilter = filter.toLowerCase();
-    // console.log(contacts.items);
-
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(lowFilter),
-    );
-
-    // это "сложный" селектор,
-    // он уходит в файл с селекторами и оттуда импорт
-  };
 
   const FiltredArray = useSelector(FiltredContacts);
   console.log(FiltredArray);

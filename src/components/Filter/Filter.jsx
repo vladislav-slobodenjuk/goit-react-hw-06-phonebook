@@ -1,17 +1,13 @@
 import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import { setContactsFilter } from 'redux/contacts/contacts-actions';
+import { selectFilter } from 'redux/contacts/contacts-selectors';
+
 import s from './Filter.module.scss';
 
-import { useDispatch } from 'react-redux';
-import { setContactsFilter } from 'redux/contacts/contacts-actions';
-import { useSelector } from 'react-redux';
-
-export default function Filter({ value, onChange }) {
+export default function Filter() {
   const dispatch = useDispatch();
-
-  // импортируется из файла с селекторами
-  const getFilter = state => state.contacts.filter;
-  const filter = useSelector(getFilter);
-  // console.log(filter);
+  const filter = useSelector(selectFilter);
 
   return (
     <>

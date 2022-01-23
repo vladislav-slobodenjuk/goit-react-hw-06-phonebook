@@ -6,7 +6,6 @@ import {
   addContact,
   deleteContact,
   setContactsFilter,
-  // filterContacts,
   setContacts,
 } from './contacts-actions';
 
