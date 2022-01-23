@@ -1,6 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
-
 import { contactsReducer } from './contacts/contacts-reducer';
 
 // const rootReducer = combineReducers({

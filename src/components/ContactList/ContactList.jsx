@@ -1,16 +1,12 @@
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from 'redux/contacts/contacts-actions';
+import { selectFiltredContacts } from 'redux/contacts/contacts-selectors';
 
-import { FiltredContacts } from 'redux/contacts/contacts-selectors';
-
-import PropTypes from 'prop-types';
 import s from './ContactList.module.scss';
 
 export default function ContactList() {
   const dispatch = useDispatch();
-
-  const FiltredArray = useSelector(FiltredContacts);
+  const FiltredArray = useSelector(selectFiltredContacts);
   console.log(FiltredArray);
 
   return (
@@ -23,7 +19,6 @@ export default function ContactList() {
           <button
             className={s.contactButton}
             type="button"
-            // onClick={() => onDelete(name)}
             onClick={() => dispatch(deleteContact(name))}
           >
             delete
@@ -33,14 +28,3 @@ export default function ContactList() {
     </ul>
   );
 }
-
-ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.exact({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    }),
-  ),
-  onDelete: PropTypes.func,
-};

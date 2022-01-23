@@ -21,7 +21,6 @@ export default function App() {
     const storageContacts = JSON.parse(isStorageContacts);
 
     if (isStorageContacts) {
-      // setContacts(storageContacts);
       dispatch(setContacts(storageContacts));
     }
   }, []);
@@ -33,12 +32,9 @@ export default function App() {
   return (
     <div className={s.app}>
       <h1>Phonebook</h1>
-      {/* <ContactForm onSubmit={addContact} /> */}
       <ContactForm />
       <h2>Contacts</h2>
-      {/* <Filter value={filter} onChange={setContactsFilterOld} /> */}
       <Filter />
-      {/* <ContactList contacts={filteredContacts} onDelete={deleteContact} /> */}
       <ContactList />
     </div>
   );
