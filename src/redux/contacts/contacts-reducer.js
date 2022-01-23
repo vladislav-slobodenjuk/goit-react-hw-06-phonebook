@@ -1,4 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
+// import { combineReducers } from 'redux';
+
 import { nanoid } from 'nanoid';
 import {
   addContact,
@@ -24,7 +26,6 @@ const initialState = {
 export const contactsReducer = createReducer(initialState, {
   [addContact]: (state, action) => {
     const { items } = state.contacts;
-
     const isAdded = items.find(contact => contact.name === action.payload.name);
 
     if (isAdded) {
@@ -33,38 +34,23 @@ export const contactsReducer = createReducer(initialState, {
     }
 
     const contactWithId = { id: nanoid(8), ...action.payload };
-
     state.contacts.items = [...items, contactWithId];
-    // setContacts(contacts => [...contacts, data]);
   },
   [deleteContact]: (state, action) => {
     const restContacts = state.contacts.items.filter(
       contact => contact.name !== action.payload,
     );
-
     state.contacts.items = restContacts;
-    // setContacts(restContacts);
   },
   [setContacts]: (state, action) => {
     state.contacts.items = action.payload;
   },
   [setContactsFilter]: (state, action) => {
     state.contacts.filter = action.payload;
-    // state.contacts.filter = action.payload.target.value;
-    // console.log(action);
   },
-  // это filterContacts здесь не нужен
-  // он уходин из экшенов в вычисляемый селектор FiltredContacts
-
-  // [filterContacts]: (state, action) => {
-  //   const { filter, items } = state.contacts;
-
-  //   const lowFilter = filter.toLowerCase();
-  //   console.log(items);
-
-  //   return items.filter(contact =>
-  //     contact.name.toLocaleLowerCase().includes(lowFilter),
-  //   );
-  // },
-  // [filterContact]: (state, action) => state + action.payload,
 });
+
+// const contactsReducer = combineReducers({
+//   items: itemsReducer,
+//   filter: filterReducer,
+// });
