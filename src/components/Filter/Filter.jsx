@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import s from './Filter.module.scss';
 
 import { useDispatch } from 'react-redux';
-import { setContactsFilter } from 'redux/actions';
+import { setContactsFilter } from 'redux/contacts/contacts-actions';
 import { useSelector } from 'react-redux';
 
 export default function Filter({ value, onChange }) {

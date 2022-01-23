@@ -6,7 +6,7 @@ import {
   setContactsFilter,
   // filterContacts,
   setContacts,
-} from './actions';
+} from './contacts-actions';
 
 const initialState = {
   contacts: {
