@@ -21,7 +21,7 @@ const initialState = {
   },
 };
 
-export const contactReducer = createReducer(initialState, {
+export const contactsReducer = createReducer(initialState, {
   [addContact]: (state, action) => {
     const { items } = state.contacts;
 

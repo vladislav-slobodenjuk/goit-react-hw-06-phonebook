@@ -1,6 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { contactReducer } from './contacts/contacts-reducer';
+import { combineReducers } from 'redux';
+
+import { contactsReducer } from './contacts/contacts-reducer';
+
+// const rootReducer = combineReducers({
+//   contacts: contactsReducer,
+// });
+
+// export const store = configureStore({
+//   reducer: rootReducer,
+// });
 
 export const store = configureStore({
-  reducer: contactReducer,
+  reducer: contactsReducer,
+  devTools: process.env.NODE_ENV === 'development',
 });
