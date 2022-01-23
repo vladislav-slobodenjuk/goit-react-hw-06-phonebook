@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { nanoid } from 'nanoid';
 
 import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/actions';
@@ -13,42 +12,26 @@ export default function ContactForm(props) {
 
   const [userName, setName] = useState('');
   const [number, setNumber] = useState('');
-  const [id, setId] = useState('');
 
-  const handleInputChange = e => {
-    const { name, value } = e.target;
+  const handleInputChange = ({ target: { name, value } }) => {
+    if (name === 'userName') {
+      setName(value);
+    }
 
-    switch (name) {
-      case 'userName':
-        setName(value);
-        // setId(nanoid(8));
-        break;
-
-      case 'number':
-        setNumber(value);
-        // setId(nanoid(8));
-        break;
-
-      default:
-        break;
+    if (name === 'number') {
+      setNumber(value);
     }
   };
 
-  const handleSubmit = async e => {
+  const handleSubmit = e => {
     e.preventDefault();
 
-    const idResult = await nanoid(8);
-    setId(idResult);
-
-    const userObj = {
-      id: idResult,
+    const newContact = {
       name: userName,
       number: number,
     };
 
-    dispatch(addContact(userObj));
-    // onSubmit(userObj);
-    // this.props.onSubmit(this.state);
+    dispatch(addContact(newContact));
   };
 
   return (

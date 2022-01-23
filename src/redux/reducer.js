@@ -1,4 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
+import { nanoid } from 'nanoid';
 import {
   addContact,
   deleteContact,
@@ -24,16 +25,16 @@ export const contactReducer = createReducer(initialState, {
   [addContact]: (state, action) => {
     const { items } = state.contacts;
 
-    const isAdded = Object.values(items).find(
-      contact => contact.name === action.payload.name,
-    );
+    const isAdded = items.find(contact => contact.name === action.payload.name);
 
     if (isAdded) {
       alert('contact is added');
       return;
     }
 
-    state.contacts.items = [...items, action.payload];
+    const contactWithId = { id: nanoid(8), ...action.payload };
+
+    state.contacts.items = [...items, contactWithId];
     // setContacts(contacts => [...contacts, data]);
   },
   [deleteContact]: (state, action) => {
