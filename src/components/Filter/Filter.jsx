@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setContactsFilter } from 'redux/contacts/contacts-actions';
+import actions from 'redux/contacts/contacts-actions';
 import { selectFilter } from 'redux/contacts/contacts-selectors';
 
 import s from './Filter.module.scss';
@@ -20,7 +20,7 @@ export default function Filter() {
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         autoComplete="off"
         value={filter}
-        onChange={evt => dispatch(setContactsFilter(evt.target.value))}
+        onChange={evt => dispatch(actions.setContactsFilter(evt.target.value))}
       />
     </>
   );

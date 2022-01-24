@@ -1,6 +1,12 @@
 import { createAction } from '@reduxjs/toolkit';
+import { nanoid } from 'nanoid';
 
-export const addContact = createAction('phonebook/addContact');
-export const deleteContact = createAction('phonebook/deleteContact');
-export const setContactsFilter = createAction('phonebook/setContactsFilter');
-export const setContacts = createAction('phonebook/setContacts');
+const addContact = createAction('phonebook/addContact', contact => {
+  return { payload: { id: nanoid(8), ...contact } };
+});
+const deleteContact = createAction('phonebook/deleteContact');
+const setContacts = createAction('phonebook/setContacts');
+const setContactsFilter = createAction('phonebook/setContactsFilter');
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default { addContact, deleteContact, setContacts, setContactsFilter };

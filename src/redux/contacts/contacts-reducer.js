@@ -1,12 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-
-import { nanoid } from 'nanoid';
-import {
-  addContact,
-  deleteContact,
-  setContactsFilter,
-  setContacts,
-} from './contacts-actions';
+import actions from './contacts-actions';
 
 const initialState = {
   contacts: {
@@ -22,7 +15,7 @@ const initialState = {
 };
 
 export const contactsReducer = createReducer(initialState, {
-  [addContact]: (state, action) => {
+  [actions.addContact]: (state, action) => {
     const { items } = state.contacts;
     const isAdded = items.find(contact => contact.name === action.payload.name);
 
@@ -31,19 +24,18 @@ export const contactsReducer = createReducer(initialState, {
       return;
     }
 
-    const contactWithId = { id: nanoid(8), ...action.payload };
-    state.contacts.items = [...items, contactWithId];
+    state.contacts.items = [...items, action.payload];
   },
-  [deleteContact]: (state, action) => {
+  [actions.deleteContact]: (state, action) => {
     const restContacts = state.contacts.items.filter(
       contact => contact.name !== action.payload,
     );
     state.contacts.items = restContacts;
   },
-  [setContacts]: (state, action) => {
+  [actions.setContacts]: (state, action) => {
     state.contacts.items = action.payload;
   },
-  [setContactsFilter]: (state, action) => {
+  [actions.setContactsFilter]: (state, action) => {
     state.contacts.filter = action.payload;
   },
 });

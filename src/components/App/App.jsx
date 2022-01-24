@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
-import { setContacts } from 'redux/contacts/contacts-actions';
+import actions from 'redux/contacts/contacts-actions';
 import { selectContacts } from 'redux/contacts/contacts-selectors';
 
 import ContactForm from 'components/ContactForm/ContactForm';
@@ -21,7 +20,7 @@ export default function App() {
     const storageContacts = JSON.parse(isStorageContacts);
 
     if (isStorageContacts) {
-      dispatch(setContacts(storageContacts));
+      dispatch(actions.setContacts(storageContacts));
     }
   }, [dispatch]);
 
