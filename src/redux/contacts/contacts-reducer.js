@@ -32,9 +32,9 @@ export const contactsReducer = createReducer(initialState, {
     );
     state.contacts.items = restContacts;
   },
-  [actions.setContacts]: (state, action) => {
-    state.contacts.items = action.payload;
-  },
+  // [actions.setContacts]: (state, action) => {
+  //   state.contacts.items = action.payload;
+  // },
   [actions.setContactsFilter]: (state, action) => {
     state.contacts.filter = action.payload;
   },

@@ -10,23 +10,23 @@ import Filter from 'components/Filter/Filter';
 import s from './App.module.scss';
 
 export default function App() {
-  const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts);
+  // const dispatch = useDispatch();
+  // const contacts = useSelector(selectContacts);
 
-  const localStorageKey = 'contacts';
+  // const localStorageKey = 'contacts';
 
-  useEffect(() => {
-    const isStorageContacts = localStorage.getItem(localStorageKey);
-    const storageContacts = JSON.parse(isStorageContacts);
+  // useEffect(() => {
+  //   const isStorageContacts = localStorage.getItem(localStorageKey);
+  //   const storageContacts = JSON.parse(isStorageContacts);
 
-    if (isStorageContacts) {
-      dispatch(actions.setContacts(storageContacts));
-    }
-  }, [dispatch]);
+  //   if (isStorageContacts) {
+  //     dispatch(actions.setContacts(storageContacts));
+  //   }
+  // }, [dispatch]);
 
-  useEffect(() => {
-    localStorage.setItem(localStorageKey, JSON.stringify(contacts));
-  }, [contacts]);
+  // useEffect(() => {
+  //   localStorage.setItem(localStorageKey, JSON.stringify(contacts));
+  // }, [contacts]);
 
   return (
     <div className={s.app}>
