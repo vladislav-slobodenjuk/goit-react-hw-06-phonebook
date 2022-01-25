@@ -20,7 +20,7 @@ export default function Filter() {
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         autoComplete="off"
         value={filter}
-        onChange={evt => dispatch(actions.setContactsFilter(evt.target.value))}
+        onChange={e => dispatch(actions.setContactsFilter(e.target.value))}
       />
     </>
   );

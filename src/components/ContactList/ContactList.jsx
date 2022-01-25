@@ -7,7 +7,6 @@ import s from './ContactList.module.scss';
 export default function ContactList() {
   const dispatch = useDispatch();
   const filteredArray = useSelector(selectFilteredContacts);
-  // console.log(filteredArray);
 
   return (
     <ul className={s.contactList}>
