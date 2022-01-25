@@ -10,13 +10,7 @@ export default function ContactForm() {
   const dispatch = useDispatch();
 
   const handleInputChange = ({ target: { name, value } }) => {
-    if (name === 'userName') {
-      setName(value);
-    }
-
-    if (name === 'number') {
-      setNumber(value);
-    }
+    name === 'userName' ? setName(value) : setNumber(value);
   };
 
   const handleSubmit = e => {

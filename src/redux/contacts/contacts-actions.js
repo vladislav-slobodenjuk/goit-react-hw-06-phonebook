@@ -8,8 +8,8 @@ const addContact = createAction('contacts/add', payload => ({
   },
 }));
 const deleteContact = createAction('contacts/delete');
-// const setContacts = createAction('phonebook/setContacts');
+const setContacts = createAction('phonebook/setContacts');
 const setContactsFilter = createAction('filter/set');
 
-// export default { addContact, deleteContact, setContacts, setContactsFilter };
-export default { addContact, deleteContact, setContactsFilter };
+export default { addContact, deleteContact, setContacts, setContactsFilter };
+// export default { addContact, deleteContact, setContactsFilter };
